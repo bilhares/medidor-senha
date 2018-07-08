@@ -1,0 +1,21 @@
+#campo-senha{
+    background-color: white !important;
+}
+
+.header {
+    color: #bdbdbd;
+    font-weight: bold;
+}
+
+.section{
+    padding-left: 20px !important;
+}
+
+.row {
+    margin-bottom: 0px !important;
+}
+input:focus {
+    border-bottom: none!important;
+    box-shadow: none!important;
+  }
+  
