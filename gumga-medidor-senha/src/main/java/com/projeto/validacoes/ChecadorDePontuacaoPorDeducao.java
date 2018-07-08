@@ -26,45 +26,50 @@ public class ChecadorDePontuacaoPorDeducao {
 		double nCaracterRepetidosIncremento = caracteresRepetidos.getnRepeticoesIncremento();
 
 		int nCaracteresConsecMaiusculo = maiusculos.getnCaracteresConsecutivos();
-		int nCaracteresConsecMinusculo = minusculos.getnCaracteresConsecutivos();//era pra te mais
+		int nCaracteresConsecMinusculo = minusculos.getnCaracteresConsecutivos();
 		int nCaracteresConsecNumeral = numericos.getnCaracteresConsecutivos();
 
 		int seqNumerais = seqNum.getnSequencia();
 		int seqLetras = sequenciaLetras.getnSequencia();
 		int seqSimbolos = sequenciaSimbolos.getnSequencia();
 
+		//somente letras
 		if ((nCaracteresMaiusculos > 0 || nCaracteresMinusculos > 0) && nCaracteresSimbolos == 0
 				&& nCaracteresNumerais == 0) {
 			score = (score - tamanhoSenha);
 		}
+		//somente numeros
 		if (nCaracteresMaiusculos == 0 && nCaracteresMinusculos == 0 && nCaracteresSimbolos == 0
 				&& nCaracteresNumerais > 0) {
 			score = (score - tamanhoSenha);
 		}
+		//repeticao de mesmos caracteres
 		if (nCaracterRepetidos > 0) {
 			score = (int) (score - nCaracterRepetidosIncremento);
 		}
-
+		//repeticao consecutiva de caracteres maiusculos
 		if (nCaracteresConsecMaiusculo > 0) {
 			score = (score
 					- (nCaracteresConsecMaiusculo * PesoPorQuantidadeCaracter.MAIUSCULAS_CONSECUTIVAS.getPeso()));
 		}
-		if (nCaracteresConsecMinusculo > 0) {//tem a mais
+		//repeticao consecutiva de caracteres minusculo 
+		if (nCaracteresConsecMinusculo > 0) {
 			score = (score
 					- (nCaracteresConsecMinusculo * PesoPorQuantidadeCaracter.MINUSCULAS_CONSECUTIVAS.getPeso()));
 		}
-
+		//numeros em ordem
 		if (nCaracteresConsecNumeral > 0) {
 			score = (score - (nCaracteresConsecNumeral * PesoPorQuantidadeCaracter.NUMERAL_CONSECUTIVO.getPeso()));
 		}
-
+		//sequencia de letras existentes 
 		if (seqLetras > 0) {
 			score = (score - (seqLetras * PesoPorQuantidadeCaracter.SEQUENCIA_LETRAS.getPeso()));
 		}
-
+		//sequencia de numeros
 		if (seqNumerais > 0) {
 			score = (score - (seqNumerais * PesoPorQuantidadeCaracter.SEQUENCIA_NUMERAL.getPeso()));
 		}
+		//sequencia de simbolos
 		if (seqSimbolos > 0) {
 			score = (score - (seqSimbolos * PesoPorQuantidadeCaracter.SEQUENCIA_SIMBOLOS.getPeso()));
 		}

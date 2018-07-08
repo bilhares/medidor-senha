@@ -10,7 +10,7 @@
 	<!-- <packaging>jar</packaging> -->
 
 	<name>gumga-medidor-senha</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Projeto medidor de senha</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

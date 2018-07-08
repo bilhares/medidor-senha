@@ -18,16 +18,19 @@ public class VerificadorDeRepeticao {
 			boolean temCaracterRepetido = false;
 
 			for (int j = 0; j < senha.length(); j++) {
+				//verificacao de cada caracter da senha para saber quais se repetem
 				Character ci = senha.charAt(i);
 				Character cj = senha.charAt(j);
 
 				BigDecimal a = new BigDecimal(senha.length());
 				BigDecimal b = new BigDecimal(j - i);
-				
+
 				if (ci == cj && i != j) {
+					//se o caracter existe em diferentes posicoes ocorre a divisao 
+					//do tamanho da senha pela diferenca da posicao dos elementos
+					//se estao muito juntos valor menor, se estao separados valor maior
 					temCaracterRepetido = true;
 					BigDecimal result = a.divide(b, MathContext.DECIMAL128);
-//					nRepeticoesIncremento += Math.abs(senha.length() / (j - i));
 					nRepeticoesIncremento += Math.abs(result.doubleValue());
 				}
 
@@ -40,7 +43,7 @@ public class VerificadorDeRepeticao {
 						: Math.ceil(nRepeticoesIncremento));
 			}
 		}
-		
+
 		return new ContagemCaracteresRepetidos(nRepeticoesIncremento, nRepeticoesCaracter);
 	}
 }
