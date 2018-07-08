@@ -9,7 +9,6 @@ public enum ComplexidadeSenha {
 
 	ComplexidadeSenha(String nome) {
 		this.nome = nome;
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getNome() {
