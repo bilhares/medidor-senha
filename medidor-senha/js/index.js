@@ -1,6 +1,5 @@
 $('#campo-senha').keyup(function () {
-    var senha = $('#campo-senha').val();
-    console.log('aqui: ' + senha);
+    var senha = $('#campo-senha').val();    
     if (senha != "") {
         var obj = JSON.stringify({ senha: senha });
         $.ajax({
