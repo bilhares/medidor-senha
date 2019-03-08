@@ -63,8 +63,6 @@ public class MedidorSenhaController {
 		// calcula a complexidade da senha com base no score
 		String complexidadeSenha = new CalculadorComplexidadeSenha().calcularComplexidade(scoreAtual);
 
-		System.out.println("SCORE: " + scoreAtual + "%\nComplexidade:" + complexidadeSenha);
-
 		return new Pontuacao(scoreAtual, complexidadeSenha);
 	}
 
